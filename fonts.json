@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "fonts": [
+    {
+      "id": "noto-serif-sc",
+      "name": "思源宋体",
+      "family": "Noto Serif SC",
+      "file": "noto-serif-sc.woff2",
+      "size": 8438360,
+      "sha256": "e37fc88456d017d784c44d0ed701c0f72e3ece97375826195b3f597824762672",
+      "license": "SIL OFL 1.1",
+      "source": "https://github.com/notofonts/noto-cjk",
+      "category": "serif",
+      "desc": "端庄的开源宋体,长文阅读最有书卷气"
+    },
+    {
+      "id": "noto-sans-sc",
+      "name": "思源黑体",
+      "family": "Noto Sans SC",
+      "file": "noto-sans-sc.woff2",
+      "size": 6093376,
+      "sha256": "7e61a2cae1ce88724dd984886ec9506aedb6a5db13933216fee74f1513acadce",
+      "license": "SIL OFL 1.1",
+      "source": "https://github.com/notofonts/noto-cjk",
+      "category": "sans",
+      "desc": "覆盖最全的开源黑体,屏幕阅读最稳"
+    },
+    {
+      "id": "sarasa-gothic-sc",
+      "name": "更纱黑体",
+      "family": "Sarasa Gothic SC",
+      "file": "sarasa-gothic-sc.woff2",
+      "size": 8341292,
+      "sha256": "c53a71137c59df0f1977f2125e8b0fd002862a96d7cfb213acfd1800f8d57439",
+      "license": "SIL OFL 1.1",
+      "source": "https://github.com/be5invis/Sarasa-Gothic",
+      "category": "sans",
+      "desc": "等宽友好的黑体,中英混排与代码块都齐整"
+    },
+    {
+      "id": "zhuque-fangsong",
+      "name": "朱雀仿宋",
+      "family": "Zhuque Fangsong",
+      "file": "zhuque-fangsong.woff2",
+      "size": 4805308,
+      "sha256": "5491330488fcba2c42138904ceec169319953292866e5ca837ad8a6597e15a1f",
+      "license": "SIL OFL 1.1",
+      "source": "https://github.com/TrionesType/zhuque",
+      "category": "kai",
+      "desc": "开源仿宋,笔记与古籍类内容的趣味选择"
+    },
+    {
+      "id": "lxgw-wenkai-gb",
+      "name": "霞鹜文楷 GB",
+      "family": "LXGW WenKai GB",
+      "file": "lxgw-wenkai-gb.woff2",
+      "size": 7985068,
+      "sha256": "17920f1dc3c5fbdb54e44eb4bbf048dc53e8d5309c7c8aa580c90ce62a01216d",
+      "license": "SIL OFL 1.1",
+      "source": "https://github.com/lxgw/LxgwWenKaiGB",
+      "category": "kai",
+      "desc": "内置文楷的扩展字集版,生僻字更全"
+    }
+  ]
+}

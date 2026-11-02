@@ -4,7 +4,7 @@
 
 中文字体动辄 10MB 上下，全塞进安装包不现实，所以墨阅只内置霞鹜文楷保底，其余放在这里按需下载。
 应用读取根目录的 [`fonts.json`](fonts.json) 得到清单，用户在「设置 → 阅读」的正文或代码字体入口按需下载启用。
-本分支新增字体等待审核、合并和 `v2` 发布；现有 `v1` 下载目录保持原样。
+本次字体目录发布为 `v2`；现有 `v1` 下载目录保持原样。
 
 **本仓库不含任何原创字体作品**，采用上游官方 WOFF2，或将官方 TTF/OTF 无损压缩为 WOFF2 后重新分发；
 每款字体的授权原文见 [`licenses/`](licenses/)，版权归各自作者所有。
@@ -39,11 +39,11 @@ Literata 面向西文长文，中文需现有字体回退；JetBrains Mono 面�
 
 ## 取用地址
 
-现行正式版本读取 `v1` tag，主源走 jsDelivr、超时自动切 GitHub raw：
+本次字体目录读取 `v2` tag，旧客户端固定的 `v1` 保持可用；主源走 jsDelivr、超时自动切 GitHub raw：
 
 ```text
-https://cdn.jsdelivr.net/gh/feiyingmm/inkread-fonts@v1/fonts.json
-https://raw.githubusercontent.com/feiyingmm/inkread-fonts/v1/fonts.json
+https://cdn.jsdelivr.net/gh/feiyingmm/inkread-fonts@v2/fonts.json
+https://raw.githubusercontent.com/feiyingmm/inkread-fonts/v2/fonts.json
 ```
 
 ## 约束
@@ -81,7 +81,7 @@ python _src/manifest.py
 
 ## 发布边界
 
-本分支只准备字体资产与清单，不覆盖 `v1`，不创建 tag 或 Release。
-审核与应用接入检查通过后，再将整个任务分支合入主线并发布新的 `v2` tag；应用双源同时改为 `v2`，核实 CDN/raw 清单与资产哈希，再随应用发版。
+字体资源通过仓库内文件及 `v2` tag 分发，不覆盖 `v1`；不另上传字体 Release 附件。
+本次经用户授权，将完整任务分支合入主线并发布 `v2` tag；应用双源使用 `v2`，须核实 CDN/raw 清单与资产哈希。字体资源和应用安装包分别发布。
 清单的 `version: 1` 是现有格式版本，不等于资源发布 tag。
 jsDelivr 按 tag 缓存，禁止 force push 覆盖已发布 tag。

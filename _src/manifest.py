@@ -25,6 +25,18 @@ FONTS = [
     dict(id="lxgw-wenkai-gb", name="霞鹜文楷 GB", family="LXGW WenKai GB", category="kai",
          license="SIL OFL 1.1", source="https://github.com/lxgw/LxgwWenKaiGB",
          desc="内置文楷的扩展字集版,生僻字更全"),
+    dict(id="ibm-plex-sans-sc", name="IBM Plex Sans SC", family="IBM Plex Sans SC", category="sans",
+         license="SIL OFL 1.1", source="https://github.com/IBM/plex",
+         desc="有辨识度的中文黑体，适合技术文档；仅常规字重"),
+    dict(id="yozai", name="悠哉", family="Yozai", category="kai",
+         license="SIL OFL 1.1", source="https://github.com/lxgw/yozai-font",
+         desc="轻松的手写风格，部分汉字由 AI 补齐；仅常规字重"),
+    dict(id="literata", name="Literata", family="Literata", category="serif",
+         license="SIL OFL 1.1", source="https://github.com/googlefonts/literata",
+         desc="适合西文长篇阅读的衬线字体，中文使用回退字体；仅常规字重"),
+    dict(id="jetbrains-mono", name="JetBrains Mono", family="JetBrains Mono", category="mono",
+         license="SIL OFL 1.1", source="https://github.com/JetBrains/JetBrainsMono",
+         desc="代码用西文等宽字体，中文需等宽回退；仅常规字重"),
 ]
 
 out = []

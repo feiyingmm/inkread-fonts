@@ -3,9 +3,10 @@
 [墨阅 (inkread)](https://github.com/feiyingmm/inkread) 的**可下载字体扩展**托管仓库。
 
 中文字体动辄 10MB 上下，全塞进安装包不现实，所以墨阅只内置霞鹜文楷保底，其余放在这里按需下载。
-应用读取根目录的 [`fonts.json`](fonts.json) 得到清单，用户在「设置 → 阅读 → 正文字体」里点一下即可下载启用。
+应用读取根目录的 [`fonts.json`](fonts.json) 得到清单，用户在「设置 → 阅读」的正文或代码字体入口按需下载启用。
+本分支新增字体等待审核、合并和 `v2` 发布；现有 `v1` 下载目录保持原样。
 
-**本仓库不含任何原创字体作品**，只是把上游作者发布的开源字体转成 woff2 后重新分发；
+**本仓库不含任何原创字体作品**，采用上游官方 WOFF2，或将官方 TTF/OTF 无损压缩为 WOFF2 后重新分发；
 每款字体的授权原文见 [`licenses/`](licenses/)，版权归各自作者所有。
 
 ## 字体清单
@@ -19,8 +20,15 @@
 | 更纱黑体 | `Sarasa Gothic SC` | 8.0 MB | 黑体 | [be5invis/Sarasa-Gothic](https://github.com/be5invis/Sarasa-Gothic) |
 | 朱雀仿宋 | `Zhuque Fangsong` | 4.6 MB | 仿宋 | [TrionesType/zhuque](https://github.com/TrionesType/zhuque) |
 | 霞鹜文楷 GB | `LXGW WenKai GB` | 7.6 MB | 楷体 | [lxgw/LxgwWenKaiGB](https://github.com/lxgw/LxgwWenKaiGB) |
+| IBM Plex Sans SC | `IBM Plex Sans SC` | 3.64 MiB | 黑体 | [IBM/plex](https://github.com/IBM/plex) |
+| 悠哉 | `Yozai` | 7.84 MiB | 手写/楷体 | [lxgw/yozai-font](https://github.com/lxgw/yozai-font) |
+| Literata | `Literata` | 95.2 KiB | 西文衬线 | [googlefonts/literata](https://github.com/googlefonts/literata) |
+| JetBrains Mono | `JetBrains Mono` | 90.2 KiB | 西文等宽 | [JetBrains/JetBrainsMono](https://github.com/JetBrains/JetBrainsMono) |
 
-均为 Regular 单字重，源文件转 woff2（体积约为原始 TTF/OTF 的 1/3）。
+均为 **Regular 单字重**，没有独立 Bold/Italic 文件；粗体和斜体由应用/浏览器合成。
+新增 IBM Plex Sans SC 适合中文技术文档；悠哉为手写风格，上游自 0.860 起采用 AI 补全部分汉字，部分字形仍可能沿用日本写法。
+Literata 面向西文长文，中文需现有字体回退；JetBrains Mono 面向代码与配置，中文需等宽字体回退，不能视为完整中文字库。
+实际字节数和 SHA256 以 [`fonts.json`](fonts.json) 为准。
 
 ### 为什么没收录某些常见字体
 
@@ -31,9 +39,9 @@
 
 ## 取用地址
 
-应用侧写死了 `v1` 这个 tag，主源走 jsDelivr、超时自动切 GitHub raw：
+现行正式版本读取 `v1` tag，主源走 jsDelivr、超时自动切 GitHub raw：
 
-```
+```text
 https://cdn.jsdelivr.net/gh/feiyingmm/inkread-fonts@v1/fonts.json
 https://raw.githubusercontent.com/feiyingmm/inkread-fonts/v1/fonts.json
 ```
@@ -47,12 +55,33 @@ https://raw.githubusercontent.com/feiyingmm/inkread-fonts/v1/fonts.json
 
 ## 更新字体清单
 
-`_src/`（不入库）放源字体与两个脚本：
+`_src/build.py` 与 `_src/manifest.py` 已入库；源字体及解包产物不入库。
+源文件按下表放入 `_src/`，许可全文原样保存在 `licenses/`。官方 WOFF2 只复制，不重新编码；悠哉仅作 WOFF2 无损压缩，不裁剪字符或修改名称、字形与授权。
 
-```bash
-python _src/build.py      # 源字体 -> woff2，并打印字体内部的 family 与授权声明
-python _src/manifest.py   # 重算 size / sha256，生成 fonts.json
+| 字体 | 固定上游修订 | 官方源文件 → `_src/` 文件名 | 本地许可（取自同一修订） |
+|---|---|---|---|
+| IBM Plex Sans SC | `71f558992315a12ca1f06a2215d57962a1992162` | [官方 WOFF2](https://raw.githubusercontent.com/IBM/plex/71f558992315a12ca1f06a2215d57962a1992162/packages/plex-sans-sc/fonts/complete/woff2/hinted/IBMPlexSansSC-Regular.woff2) → `IBMPlexSansSC-Regular.woff2` | [ibm-plex-sans-sc.txt](licenses/ibm-plex-sans-sc.txt)，上游 `packages/plex-sans-sc/LICENSE.txt` |
+| 悠哉 | `v0.868` / `90a91ca019faad7b7dae885a4f70a44359021333` | [官方发布附件](https://github.com/lxgw/yozai-font/releases/download/v0.868/Yozai-Regular.ttf) → `Yozai-Regular.ttf` | [yozai.txt](licenses/yozai.txt)，上游 `OFL.txt` |
+| Literata | `0c2761b727a1b3a7cffd313c37f0f5163dfc7a63` | [官方 WOFF2](https://raw.githubusercontent.com/googlefonts/literata/0c2761b727a1b3a7cffd313c37f0f5163dfc7a63/fonts/webfonts/Literata-Regular.woff2) → `Literata-Regular.woff2` | [literata.txt](licenses/literata.txt)，上游 `OFL.txt` |
+| JetBrains Mono | `19371302b95d218af43299bce79ddbddd0bc364d` | [官方 WOFF2](https://raw.githubusercontent.com/JetBrains/JetBrainsMono/19371302b95d218af43299bce79ddbddd0bc364d/fonts/webfonts/JetBrainsMono-Regular.woff2) → `JetBrainsMono-Regular.woff2` | [jetbrains-mono.txt](licenses/jetbrains-mono.txt)，上游 `OFL.txt` |
+
+悠哉原始 TTF 为 15,605,374 字节，SHA256 为 `25071998a0fe6a72f54c235e714986d259633e5ff670b1a2b5e264387f3316ac`，已与官方发布页校对。
+转换使用 fontTools 4.64.0、Brotli 1.2.0；禁用表预处理并保留时间戳，压缩后核对字体表、名称、字符映射及字形数据。
+悠哉各表原始字节保持一致，唯 `head` 表按 [WOFF2 规范](https://www.w3.org/TR/WOFF2/) 设置无损压缩标志 bit 11 并重算校验值，名称、字形与授权表不变。
+仅作无损 WOFF2 封装时保留名称，遵循 [OFL FAQ 2.2/2.2.1](https://openfontlicense.org/ofl-faq/)；后续若修改字形、子集或元数据，须重新核对保留名称条件。
+
+在仓库根目录运行（Python 需已有 fontTools 和 Brotli）。旧五款源文件不在当前检出时，构建脚本会提示缺源并跳过，保留已有 WOFF2：
+
+```powershell
+# 官方 WOFF2 原样复制；TTF/OTF 压缩为 WOFF2，并打印内部家族名和授权声明。
+python _src/build.py
+# 重算全部已登记字体的真实字节数与 SHA256，更新 fonts.json。
+python _src/manifest.py
 ```
 
-改完之后**建议打新 tag 并同步改应用里的 `SOURCES`**（`src-tauri/src/fonts.rs`），
-而不是 force push 覆盖 `v1` —— jsDelivr 按 tag 缓存，覆盖后最长要等 7 天才生效。
+## 发布边界
+
+本分支只准备字体资产与清单，不覆盖 `v1`，不创建 tag 或 Release。
+审核与应用接入检查通过后，再将整个任务分支合入主线并发布新的 `v2` tag；应用双源同时改为 `v2`，核实 CDN/raw 清单与资产哈希，再随应用发版。
+清单的 `version: 1` 是现有格式版本，不等于资源发布 tag。
+jsDelivr 按 tag 缓存，禁止 force push 覆盖已发布 tag。

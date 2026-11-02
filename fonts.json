@@ -60,6 +60,54 @@
       "source": "https://github.com/lxgw/LxgwWenKaiGB",
       "category": "kai",
       "desc": "内置文楷的扩展字集版,生僻字更全"
+    },
+    {
+      "id": "ibm-plex-sans-sc",
+      "name": "IBM Plex Sans SC",
+      "family": "IBM Plex Sans SC",
+      "file": "ibm-plex-sans-sc.woff2",
+      "size": 3813972,
+      "sha256": "dc51399ce38f7200806df891476d7216a81c8aede47284e421a54413608c407c",
+      "license": "SIL OFL 1.1",
+      "source": "https://github.com/IBM/plex",
+      "category": "sans",
+      "desc": "有辨识度的中文黑体，适合技术文档；仅常规字重"
+    },
+    {
+      "id": "yozai",
+      "name": "悠哉",
+      "family": "Yozai",
+      "file": "yozai.woff2",
+      "size": 8221224,
+      "sha256": "f3caf51974f837147929e1a62eb7fdf6fca4c3d1c81cb35fbf0930b786e9d50c",
+      "license": "SIL OFL 1.1",
+      "source": "https://github.com/lxgw/yozai-font",
+      "category": "kai",
+      "desc": "轻松的手写风格，部分汉字由 AI 补齐；仅常规字重"
+    },
+    {
+      "id": "literata",
+      "name": "Literata",
+      "family": "Literata",
+      "file": "literata.woff2",
+      "size": 97440,
+      "sha256": "94f47c83bbae42da280fdeccad202ea904edb07020d98979f99efad2f75f1b1e",
+      "license": "SIL OFL 1.1",
+      "source": "https://github.com/googlefonts/literata",
+      "category": "serif",
+      "desc": "适合西文长篇阅读的衬线字体，中文使用回退字体；仅常规字重"
+    },
+    {
+      "id": "jetbrains-mono",
+      "name": "JetBrains Mono",
+      "family": "JetBrains Mono",
+      "file": "jetbrains-mono.woff2",
+      "size": 92380,
+      "sha256": "f1a7a03672cdd494ce0d5543fac6e4360fe22403c6de297fdc2e55a815f7baff",
+      "license": "SIL OFL 1.1",
+      "source": "https://github.com/JetBrains/JetBrainsMono",
+      "category": "mono",
+      "desc": "代码用西文等宽字体，中文需等宽回退；仅常规字重"
     }
   ]
 }
